@@ -48,7 +48,11 @@ const sound: SoundI = new (class {
       this.loadStandard(name, set);
       s = this.sounds.get(name);
     }
-    const doPlay = () => s.volume(this.getVolume() * (volume || 1)).play();
+    this.playHowl(s, volume);
+  }
+
+  playHowl(howl: any, volume?: number) {
+    const doPlay = () => howl.volume(this.getVolume() * (volume || 1)).play();
     if (window.Howler.ctx?.state === 'suspended') window.Howler.ctx.resume().then(doPlay);
     else doPlay();
   }

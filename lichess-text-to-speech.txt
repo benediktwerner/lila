@@ -1,0 +1,7 @@
+https://voicegenerator.io/
+https://ttsmp3.com/
+
+ffmpeg -i input.mp3 -c:a libvorbis -q:a 4 output.ogg
+for f in ./*.mp3; do ffmpeg -i "$f" -c:a libvorbis -q:a 4 "${f/%mp3/ogg}"; done
+
+ffmpeg -i bkp/a.mp3 -af silenceremove=1:0:-30dB:0:any:1:0:-30dB a.mp3

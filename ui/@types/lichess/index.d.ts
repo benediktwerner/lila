@@ -107,6 +107,7 @@ interface SoundI {
   loadOggOrMp3(name: string, path: string): void;
   loadStandard(name: string, soundSet?: string): void;
   play(name: string, volume?: number): void;
+  playHowl(howl: any, volume?: number): void;
   getVolume(): number;
   setVolume(v: number): void;
   speech(v?: boolean): boolean;
